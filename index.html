@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="stylesheet" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">🎬</div>
+        <h1>Movie <span class="text-gradient">Explorer</span></h1>
+      </div>
+      <button class="theme-toggxle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search movies and series..." />
+      <button class="clear-btn" id="clearBtn" style="display:none;">✕</button>
+    </div>
+
+    <div class="filter-controls">
+      <select id="yearFilter" class="filter-select">
+        <option value="all">All Years</option>
+      </select>
+      <select id="typeFilter" class="filter-select">
+        <option value="all">All Types</option>
+        <option value="movie">Movies</option>
+        <option value="series">Series</option>
+      </select>
+      <select id="sortFilter" class="filter-select">
+        <option value="default">Default</option>
+        <option value="year-desc">Year ↓</option>
+        <option value="year-asc">Year ↑</option>
+        <option value="title-asc">Title A–Z</option>
+      </select>
+    </div>
+
+    <p class="results-count" id="resultsCount">0 results found</p>
+
+    <div class="spinner-wrapper" id="loader" style="display:none;">
+      <div class="spinner"></div>
+      <p>Loading movies...</p>
+    </div>
+
+    <div class="empty-state" id="errorMsg" style="display:none;">
+      <p class="empty-title">No movies found</p>
+      <p class="empty-sub">Try a different search term</p>
+    </div>
+
+    <div class="movie-grid" id="movieGrid"></div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" style="display:none;">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-body" id="modalBody">
+        <div class="spinner-wrapper"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
